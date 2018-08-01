@@ -1,6 +1,16 @@
 ﻿# EFTutor_TEMPLATE
 
 
+npm install
+
+git clone https://github.com/EdForge/EFTutorBuilder.git
+
+/EFTutorBuilder/npm install
+
+
+
+Archive -- use when repo is public
+
 git submodule init
 git submodule update
 
