@@ -1,11 +1,13 @@
 ﻿# EFTutor_TEMPLATE
 
 
-npm install
+git clone https://github.com/EdForge/EFTutor_TEMPLATE.git  tutorFolderName
+
+tutorFolderName/npm install
 
 git clone https://github.com/EdForge/EFTutorBuilder.git
 
-/EFTutorBuilder/npm install
+tutorFolderName/EFTutorBuilder/npm install
 
 
 
