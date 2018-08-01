@@ -1,0 +1,207 @@
+{
+	"type":"graph",
+	"history":"volatile",
+	"name":"TED Final",
+	"version":"0.1.0",
+	"namespace":"TED Final",
+
+
+	"CNodes":
+	{	
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CNodes  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+
+				
+					
+		"_nav":{"COMMENT":"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Navigation Components preload node - used to force nav scene creation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%***",
+				"type":"module",
+				"name":"base",
+				"edges":
+						[
+						]
+				},
+			
+		"root":{"COMMENT":"Standard Start Screen",
+				"type":"module", 
+				"name":"start",
+				"edges":
+						[													
+							{"constraint":"","edge":"END_CLOAK"}							
+						]
+				},
+
+		"END_CLOAK":{ "COMMENT":"End Cloak - Allows LogManager to gracefully shutdown the session",
+					"type":"module", 
+					"name":"END_CLOAK",
+					"edges":
+							[
+							]
+					}					
+	},		
+		
+	"CModules":
+	{		
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CModules  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+	
+		"base":
+		{
+			"instanceNode":"",
+			"reuse":true,			
+			"scenes":		
+			[
+				{"title":"", "page":"", "name":"SoundCheck",  "classname":"EFMod_SignIn.SoundCheck"	  , "features":"null", "enqueue":"false", "create":"false", "visible":"true", "persist":"false", "ischeckpnt":"true", "object":"null"},
+				{"title":"", "page":"", "name":"SignIn", 	  "classname":"EFMod_SignIn.SignIn"		  , "features":"null", "enqueue":"false", "create":"false", "visible":"true", "persist":"false", "ischeckpnt":"true", "object":"null"},		
+				{"title":"", "page":"", "name":"SNavigator",   "classname":"EFMod_CodeTest.Navigator", "features":"null", "enqueue":"false" , "create":"true" , "visible":"true", "persist":"false", "ischeckpnt":"true", "object":"null"}
+			]
+		},	
+			
+		"start":
+		{
+			"instanceNode":"",
+			"reuse":true,
+			"scenes":		
+			[
+				{"title":"Start of Tutor", "page":"", "name":"SScene1"   , "classname":"EFMod_CodeTest.Scene1", "features":"", "enqueue":"true", "create":"false", "persist":"false", "ischeckpnt":"true", "object":"null"},
+				{"title":"Start of Tutor", "page":"", "name":"SScene2"   , "classname":"EFMod_CodeTest.Scene2", "features":"", "enqueue":"true", "create":"false", "persist":"false", "ischeckpnt":"true", "object":"null"},
+				{"title":"Start of Tutor", "page":"", "name":"SScene3"   , "classname":"EFMod_CodeTest.Scene3", "features":"", "enqueue":"true", "create":"false", "persist":"false", "ischeckpnt":"true", "object":"null"}
+			]
+		},
+	
+		"END_CLOAK":
+		{
+			"instanceNode":"",
+			"reuse":true,
+			"scenes":		
+			[	
+				{"title":"", "page":"", "name":"SScene4"  , "classname":"EFMod_CodeTest.Scene4", "features":"" , "enqueue":"true", "create":"false", "persist":"false", "ischeckpnt":"true", "object":"null"}
+			]
+		}		
+		
+	},
+
+	"CModuleGroups":
+	{
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CModuleGroups  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CModuleGroups  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+	
+		"solcom-modgrp":
+		{
+			"instanceNode":"",
+			"type":"seqtype",
+			"start":"0",
+			"show":"1",
+			"reuse":true,
+			"onempty":"na",
+			
+			"modules":
+			[
+				{"instanceNode":"", "name":"SOLCOM_A"},
+				{"instanceNode":"", "name":"SOLCOM_B"},
+				{"instanceNode":"", "name":"SOLCOM_C"}
+			]
+        }
+	},
+
+
+	"CActions":
+	{
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CActions  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CActions  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+	
+		"act0":{"cmd":"assertFeature",
+			    "parms":
+					[
+						"FTR_RIGHT"
+					]},
+					
+		"act1":{"cmd":"retractFeature",
+				"parms":
+					[
+						"FTR_RIGHT"
+					]}
+	},
+	
+	"CConstraints":
+	{
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CConstraints  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CConstraints  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+			
+		"FTR_PRETEST":{"cmd":"test", "code":"FTR_PRETEST"},
+		"SKILL_R0_FAIL" :{"cmd":"exec","code":"{return (gTutor.ktSkills['rule0'].queryBelief() < 0.93);}"},
+		"q6B_NOCHECKED":{"cmd":"exec","code":"return gTutor['Sq6p1_B'].q6Check2.getChecked();"}
+	},
+
+	"CSubGraphs":
+	{
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CSubGraphs  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CSubGraphs  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+			
+	},
+	
+	
+	"CExternals":
+	{
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CExternals  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CExternals  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+	},
+	
+	
+	"CSkills":
+	{
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CSkills  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+		"COMMENT":"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  CSkills  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@",
+	
+		"rule0":
+		{
+			"description":"Identify Target variable",
+			"pL": 0.125,
+			"pT": 0.046667,
+			"pG": 0.1,
+			"pS": 0.1
+		},
+		"rule1":
+		{
+			"description":"Vary target variable",
+			"pL": 0.250,
+			"pT": 0.041667,
+			"pG": 0.1,
+			"pS": 0.1
+		},
+		"rule2":
+		{
+			"description":"Control non-target variables",
+			"pL": 0.05,
+			"pT": 0.06,
+			"pG": 0.1,
+			"pS": 0.1
+		},
+		"rule_vvfar":
+		{
+			"description":"Vary Variable for any reason",
+			"pL": 0.5,
+			"pT": 0.213333,
+			"pG": 0.1,
+			"pS": 0.1
+		},
+		"rule_tov":
+		{
+			"description":"Test one variable at a time",
+			"pL": 0.03,
+			"pT": 0.046667,
+			"pG": 0.1,
+			"pS": 0.1
+		},
+		"rule_cvslog":
+		{
+			"description":"Full CS Logic - R-0,1,2",
+			"pL": 0.03,
+			"pT": 0.03,
+			"pG": 0.1,
+			"pS": 0.1
+		}
+	}
+		
+		
+}
+
+
+

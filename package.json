@@ -1,0 +1,14 @@
+{
+  "name": "eftutor_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "none.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "systemjs": "^0.21.2"
+  },
+  "dependencies": {}
+}

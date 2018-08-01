@@ -1,0 +1,10 @@
+{
+	"accounts": {
+		"KEVIN": {
+			"isActive": "true",
+			"_feature": "",
+			"_loader": "STD_LOGIN",
+			"roles": "user"
+		}
+	}
+}
