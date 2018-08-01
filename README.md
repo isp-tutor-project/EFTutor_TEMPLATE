@@ -7,7 +7,13 @@ tutorFolderName/npm install
 
 git clone https://github.com/EdForge/EFTutorBuilder.git
 
-tutorFolderName/EFTutorBuilder/npm install
+tutorFolderName/EFTutorBuilder/AudioBuilder/npm install
+tutorFolderName/EFTutorBuilder/DataBuilder/npm install
+tutorFolderName/EFTutorBuilder/ModuleBuilder/npm install
+tutorFolderName/EFTutorBuilder/TutorBuilder/npm install
+
+
+
 
 
 
